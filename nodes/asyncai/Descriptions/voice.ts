@@ -155,14 +155,6 @@ export const VoiceFields: INodeProperties[] = [
 		},
 		options: [
 			{
-				displayName: 'Description',
-				description: 'A description of the voice',
-				name: 'description',
-				type: 'string',
-				default: ``,
-				placeholder: 'e.g. Calm, neutral-tone female voice',
-			},
-			{
 				displayName: 'Accent',
 				description: 'An accent of the voice',
 				name: 'accent',
@@ -171,16 +163,16 @@ export const VoiceFields: INodeProperties[] = [
 				placeholder: 'e.g. American (US)',
 			},
 			{
-				displayName: 'Style',
-				description: 'Voice style(s), comma-separated',
-				name: 'style',
+				displayName: 'Description',
+				description: 'A description of the voice',
+				name: 'description',
 				type: 'string',
 				default: ``,
-				placeholder: 'Voice style(s), comma-separated',
+				placeholder: 'e.g. Calm, neutral-tone female voice',
 			},
 			{
 				displayName: 'Enhance',
-				description: 'Whether to enhance (remove background noise of) the audio clip before cloning.',
+				description: 'Whether to enhance (remove background noise of) the audio clip before cloning',
 				name: 'enhance',
 				type: 'boolean',
 				default: false
@@ -197,7 +189,15 @@ export const VoiceFields: INodeProperties[] = [
 					{ name: 'Neutral', value: 'Neutral'},
 
 				],
-			}
+			},
+			{
+				displayName: 'Style',
+				description: 'Voice style(s), comma-separated',
+				name: 'style',
+				type: 'string',
+				default: ``,
+				placeholder: 'Voice style(s), comma-separated',
+			},
 		],
 	},
 

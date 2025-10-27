@@ -5,7 +5,7 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class AsyncAI implements ICredentialType {
+export class AsyncAIApi implements ICredentialType {
 	name = 'asyncAIApi';
 	displayName = 'AsyncAI API';
 	documentationUrl = 'https://docs.async.ai/';

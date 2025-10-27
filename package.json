@@ -50,10 +50,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/AsyncAI.credentials.js"
+      "dist/credentials/AsyncAIApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/asyncai/AsyncAI.node.js"
+      "dist/nodes/asyncai/AsyncAi.node.js"
     ]
   },
   "devDependencies": {

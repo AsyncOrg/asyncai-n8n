@@ -109,22 +109,16 @@ export const SpeechFields: INodeProperties[] = [
 		},
 		options: [
 			{
-		displayName: 'Model',
-		description: 'Select the model to use for the conversion',
-		name: 'model',
-		type: 'options',
-		default: 'asyncflow_multilingual_v1.0',
-		options: [
-				{ name: 'AsyncFlow V2 (English only)', value: 'asyncflow_v2.0', description: 'English only' },
-				{ name: 'AsyncFlow Multilingual V1', value: 'asyncflow_multilingual_v1.0', description: 'Multilingual' },
-			],
-		routing: {
-			send: {
-				type: 'body',
-				property: 'model_id',
+				displayName: 'Bit Rate',
+				name: 'bitRate',
+				type: 'number',
+				typeOptions: { minValue: 32000, maxValue: 320000, numberStepSize: 1000 },
+				default: 192000,
+				description: 'Only used with MP3',
+				displayOptions: {
+					show: { outputContainer: ['mp3'] },
+				},
 			},
-		},
-		},
 			{
 				displayName: 'Container',
 				name: 'outputContainer',
@@ -146,9 +140,26 @@ export const SpeechFields: INodeProperties[] = [
 					show: { outputContainer: ['wav'] },
 				},
 				options: [
-					{ name: 'pcm_f32le', value: 'pcm_f32le' },
-					{ name: 'pcm_s16le', value: 'pcm_s16le' },
+					{ name: 'PCM 32bit', value: 'pcm_f32le' },
+					{ name: 'PSM 16bit', value: 'pcm_s16le' },
 				],
+			},
+			{
+				displayName: 'Model',
+				description: 'Select the model to use for the conversion',
+				name: 'model',
+				type: 'options',
+				default: 'asyncflow_multilingual_v1.0',
+				options: [
+						{ name: 'AsyncFlow V2', value: 'asyncflow_v2.0', description: 'English only' },
+						{ name: 'AsyncFlow Multilingual V1', value: 'asyncflow_multilingual_v1.0', description: 'Multilingual' },
+					],
+				routing: {
+					send: {
+						type: 'body',
+						property: 'model_id',
+					},
+				},
 			},
 			{
 				displayName: 'Sample Rate',
@@ -158,17 +169,6 @@ export const SpeechFields: INodeProperties[] = [
 				default: 44100,
 				description: 'Output audio sample rate (Hz)',
 			},
-			{
-				displayName: 'Bit Rate',
-				name: 'bitRate',
-				type: 'number',
-				typeOptions: { minValue: 32000, maxValue: 320000, numberStepSize: 1000 },
-				default: 192000,
-				description: 'Only used with MP3',
-				displayOptions: {
-					show: { outputContainer: ['mp3'] },
-				},
-			}
 		],
 	},
 ];
