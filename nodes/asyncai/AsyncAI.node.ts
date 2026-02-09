@@ -3,7 +3,7 @@ import { VoiceOperations, VoiceFields } from './Descriptions/voice';
 import { listSearch } from './Descriptions/utils';
 import { SpeechFields, SpeechOperations } from './Descriptions/speech';
 
-export class AsyncAi implements INodeType {
+export class AsyncAI implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Async',
 		name: 'asyncAi',
