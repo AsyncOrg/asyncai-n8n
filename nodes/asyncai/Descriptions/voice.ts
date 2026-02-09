@@ -112,6 +112,19 @@ export const VoiceFields: INodeProperties[] = [
 		],
 		required: true,
 	},
+	{
+		displayName: 'Simplify',
+		name: 'simplify',
+		type: 'boolean',
+		displayOptions: {
+			show: {
+				resource: ['voice'],
+				operation: ['get'],
+			},
+		},
+		default: true,
+		description: 'Whether to return a simplified version of the response instead of the raw data',
+	},
 	// Create Clone
 	{
 		displayName: 'Name',

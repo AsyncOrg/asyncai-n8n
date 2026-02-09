@@ -1,4 +1,4 @@
-import { IExecuteSingleFunctions, IHttpRequestOptions, IN8nHttpFullResponse, INodeExecutionData, INodeProperties } from "n8n-workflow";
+import { IExecuteSingleFunctions, IHttpRequestOptions, IN8nHttpFullResponse, INodeExecutionData, INodeProperties, NodeApiError } from "n8n-workflow";
 
 export const SpeechOperations: INodeProperties[] = [
 	{
@@ -189,9 +189,13 @@ async function returnBinaryData<PostReceiveAction>(
     try {
       const text = buf.toString('utf8');
       const json = JSON.parse(text);
-      throw new Error(`Async TTS returned JSON instead of audio: ${json.message || text}`);
-    } catch {
-      throw new Error(`Async TTS returned non-audio response: ${buf.toString('utf8').slice(0, 400)}...`);
+      throw new NodeApiError(this.getNode(), { message: `Async TTS returned JSON instead of audio: ${json.message || text}` });
+    } catch (error) {
+      // If JSON parsing failed or it's not a NodeApiError, throw a generic error
+      if (error instanceof NodeApiError) {
+        throw error;
+      }
+      throw new NodeApiError(this.getNode(), { message: `Async TTS returned non-audio response: ${buf.toString('utf8').slice(0, 400)}...` });
     }
   }
 
