@@ -141,7 +141,7 @@ export const SpeechFields: INodeProperties[] = [
 				},
 				options: [
 					{ name: 'PCM 32bit', value: 'pcm_f32le' },
-					{ name: 'PSM 16bit', value: 'pcm_s16le' },
+					{ name: 'PCM 16bit', value: 'pcm_s16le' },
 				],
 			},
 			{
@@ -149,10 +149,9 @@ export const SpeechFields: INodeProperties[] = [
 				description: 'Select the model to use for the conversion',
 				name: 'model',
 				type: 'options',
-				default: 'asyncflow_multilingual_v1.0',
+				default: 'async_flash_v1.0',
 				options: [
-						{ name: 'AsyncFlow V2', value: 'asyncflow_v2.0', description: 'English only' },
-						{ name: 'AsyncFlow Multilingual V1', value: 'asyncflow_multilingual_v1.0', description: 'Multilingual' },
+						{ name: 'Async Flash v1.0', value: 'async_flash_v1.0', description: 'Fastest model, designed for real-time and low-latency applications' },
 					],
 				routing: {
 					send: {
@@ -228,7 +227,7 @@ async function preSendTexttoSpeech(
 
   // Ensure model_id exists (fallback if user didn’t add the Model option)
   if (!body.model_id) {
-    body.model_id = opts.model ?? 'asyncflow_multilingual_v1.0';
+    body.model_id = opts.model ?? 'async_flash_v1.0';
   }
 
   // Build output_format based on container + optional fields

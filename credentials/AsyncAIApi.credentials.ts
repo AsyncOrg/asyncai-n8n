@@ -8,7 +8,7 @@ import {
 export class AsyncAIApi implements ICredentialType {
 	name = 'asyncAIApi';
 	displayName = 'AsyncAI API';
-	documentationUrl = 'https://docs.async.ai/';
+	documentationUrl = 'https://docs.async.com/';
 	properties: INodeProperties[] = [
 		{
 			displayName: 'AsyncAI API Key',
@@ -30,7 +30,7 @@ export class AsyncAIApi implements ICredentialType {
 
 	test: ICredentialTestRequest | undefined = {
 		request: {
-			baseURL: 'https://api.async.ai',
+			baseURL: 'https://api.async.com',
 			url: '/voices',
 			method: 'POST',
 		},

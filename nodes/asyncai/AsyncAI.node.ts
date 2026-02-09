@@ -26,7 +26,7 @@ export class AsyncAi implements INodeType {
 		],
 		requestDefaults: {
 			method: 'GET',
-			baseURL: 'https://api.async.ai/',
+			baseURL: 'https://api.async.com/',
 			headers: {
 				'Content-Type': 'application/json',
 			},

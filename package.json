@@ -1,6 +1,6 @@
 {
   "name": "@asyncai/n8n-nodes-asyncai",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "AsyncAI node for n8n",
   "keywords": [
     "n8n-community-node-package",
@@ -23,7 +23,7 @@
     "voice agents n8n node"
   ],
   "license": "MIT",
-  "homepage": "async.ai",
+  "homepage": "https://async.com/async-voice-api",
   "author": {
     "name": "AsyncAI",
     "email": "support@async.ai"
@@ -53,7 +53,7 @@
       "dist/credentials/AsyncAIApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/asyncai/AsyncAi.node.js"
+      "dist/nodes/asyncai/AsyncAI.node.js"
     ]
   },
   "devDependencies": {
